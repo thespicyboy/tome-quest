@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class CameraPan : MonoBehaviour
 {
-    public Transform startMarker;
-    public Transform endMarker;
+    public Transform startMarker; // starting spot
+    public Transform endMarker; // ending spot
 
     public float speed = 1.0f;
-    private float startTime;
+    private float startTime; // starting time
 
-    private float journeyLength;
+    private float journeyLength; //distance between to points
 
-    private GameObject tempMarker;
+    private GameObject tempMarker; //temp location marker for paning
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,9 @@ public class CameraPan : MonoBehaviour
 
         journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
 
-        PanCamera(25, true);
+        //inits
+
+        PanCamera(25, true); //moves the camera to the right 25 units
     }
 
     // Update is called once per frame
@@ -29,15 +33,15 @@ public class CameraPan : MonoBehaviour
     {
 
         // ZoomCamera(startMarker.position, endMarker.position);
-        ZoomCamera(startMarker.position, tempMarker.transform.position);
+        ZoomCamera(startMarker.position, tempMarker.transform.position); //slowly updates postion 
     }
 
     public void UpdateCameraPostion()
     {
-        startMarker = gameObject.transform;
+        startMarker = gameObject.transform; //resests the starting location to current location
     }
 
-    public void ZoomCamera(Vector3 start, Vector3 end)
+    public void ZoomCamera(Vector3 start, Vector3 end) //move a bit each frame
     {
         float distCovered = (Time.time - startTime) * speed;
 
@@ -46,7 +50,7 @@ public class CameraPan : MonoBehaviour
         transform.position = Vector3.Lerp(start, end, fractionofJourney);
     }
 
-    public void PanCamera(int distance, bool direction) //true = right
+    public void PanCamera(int distance, bool direction) //true = right //creates a temp obj to slowly move to
     {
         Vector3 tempPostion = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
 

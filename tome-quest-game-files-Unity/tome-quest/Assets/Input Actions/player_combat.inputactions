@@ -1,0 +1,52 @@
+{
+    "name": "player_combat",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "73b456cf-bad0-4675-9337-0210ad7b237d",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "ae685cd3-ff1e-4fc2-bfaa-212619ad5dc2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "action_perform",
+                    "type": "Value",
+                    "id": "13dbf88b-49c7-40f3-99d8-e5cf7e40c7bb",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8807a94a-3e0a-48db-969d-c8fb0ee85edb",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8fb0626-aa84-4e7b-8805-1402d3c53af2",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "action_perform",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

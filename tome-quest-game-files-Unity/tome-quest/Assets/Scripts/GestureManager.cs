@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,13 +25,16 @@ public class GestureManager : MonoBehaviour
     {
         cursorTransform = inputCursor.GetComponent<RectTransform>();
 
+        float targetRadius = 250;
+        Vector2 targetCorner = targetRadius * Vector2.ClampMagnitude(new Vector2(1, 1), 1.0f);
+
         targetPositions = new Vector2[]
         {
-            new Vector2(-250, 0),
-            new Vector2(-250, -250),
-            new Vector2(0, -250),
-            new Vector2(250, -250),
-            new Vector2(250, 0)
+            new Vector2(-targetRadius, 0),
+            new Vector2(-targetCorner.x, -targetCorner.y),
+            new Vector2(0, -targetRadius),
+            new Vector2(targetCorner.x, -targetCorner.y),
+            new Vector2(targetRadius, 0)
         };
 
         gestureTargets = new List<GameObject>();

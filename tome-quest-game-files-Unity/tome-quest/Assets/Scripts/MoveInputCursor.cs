@@ -22,11 +22,10 @@ public class MoveInputCursor : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector2 position = new Vector2(
-            horizontalInput * halfDisplaySizePx,
-            verticalInput * halfDisplaySizePx
-        );
+        Vector2 inputCoord = new Vector2(horizontalInput, verticalInput);
+        Vector2 clampedInputCoord = Vector2.ClampMagnitude(inputCoord, 1.0f);
 
-        rectTransform.anchoredPosition = position;
+        Vector2 inputPosition = clampedInputCoord * halfDisplaySizePx;
+        rectTransform.anchoredPosition = inputPosition;
     }
 }

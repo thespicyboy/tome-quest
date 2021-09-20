@@ -208,7 +208,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 77583356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148984732099543ae97aef1368f4c78a, type: 3}
+  m_Script: {fileID: 11500000, guid: 535db31684ca4417fa2fde3b8ebb3d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   displaySizePx: 500
@@ -423,10 +423,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 711861685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75852fb068e694387afff9dfbcfd2415, type: 3}
+  m_Script: {fileID: 11500000, guid: b168fbb13a9fd4015a345fc56aeaf6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gestureTargetPrefab: {fileID: 6670290324605476408, guid: ab34808a0ae104053b07914673b6d90a, type: 3}
+  gestureTargetPrefab: {fileID: 6670290324605476408, guid: 067e04c1d52a94caaa09282019356dde, type: 3}
   inputBackground: {fileID: 2095460243}
   inputCursor: {fileID: 77583356}
   targetTolerance: 50

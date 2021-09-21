@@ -25,7 +25,8 @@ public class GestureManager : MonoBehaviour
     {
         cursorTransform = inputCursor.GetComponent<RectTransform>();
 
-        float targetRadius = 250;
+        float inputBackgroundWidth = inputBackground.GetComponent<RectTransform>().sizeDelta.x;
+        float targetRadius = inputBackgroundWidth / 2;
         Vector2 targetCorner = targetRadius * Vector2.ClampMagnitude(new Vector2(1, 1), 1.0f);
 
         targetPositions = new Vector2[]

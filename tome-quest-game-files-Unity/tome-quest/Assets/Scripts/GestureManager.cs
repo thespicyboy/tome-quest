@@ -16,15 +16,20 @@ public class GestureManager : MonoBehaviour
     private Vector2[] targetPositions;
     private List<GameObject> gestureTargets;
     private RectTransform cursorTransform;
+    private AudioSource clickSound;
 
     static Color yellowColor = Color.yellow;
     static Color pinkColor = new Color(1f, 0.38f, 0.56f, 1f);
 
-    // Start is called before the first frame update
     void Start()
     {
         cursorTransform = inputCursor.GetComponent<RectTransform>();
+        clickSound = GetComponent<AudioSource>();
+        InitializeTargets();
+    }
 
+    private void InitializeTargets()
+    {
         float inputBackgroundWidth = inputBackground.GetComponent<RectTransform>().sizeDelta.x;
         float targetRadius = inputBackgroundWidth / 2;
         Vector2 targetCorner = targetRadius * Vector2.ClampMagnitude(new Vector2(1, 1), 1.0f);
@@ -53,7 +58,7 @@ public class GestureManager : MonoBehaviour
         SetTargetColors();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         Vector2 nextTargetPosition = targetPositions[currentTargetIndex];
@@ -64,6 +69,7 @@ public class GestureManager : MonoBehaviour
         if (isCursorOnTarget)
         {
             currentTargetIndex = (currentTargetIndex + 1) % targetPositions.Length;
+            clickSound.Play();
         }
         SetTargetColors();
     }

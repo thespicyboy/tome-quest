@@ -9,7 +9,6 @@ public class MoveInputCursor : MonoBehaviour
     float targetRadius;
     RectTransform rectTransform;
 
-    // Start is called before the first frame update
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -18,7 +17,6 @@ public class MoveInputCursor : MonoBehaviour
         targetRadius = inputBackgroundWidth / 2;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");

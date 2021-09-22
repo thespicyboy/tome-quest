@@ -18,7 +18,7 @@ public class GestureManager : MonoBehaviour
     private RectTransform cursorTransform;
     private AudioSource clickSound;
 
-    static Color yellowColor = Color.yellow;
+    static Color yellowColor = new Color(0.85f, 0.8f, 0f, 1f);
     static Color pinkColor = new Color(1f, 0.38f, 0.56f, 1f);
 
     void Start()

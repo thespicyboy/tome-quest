@@ -14,12 +14,13 @@ public class JimboTriggerAnimations : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            animator.Play("Base Layer.Figure|AttackAction", 0, 0);
-            print("Attack");
+            animator.Play("Base Layer.AttackAction", 0, 0);
         } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            animator.Play("Base Layer.Figure|DamagedAction", 0, 0);
+            animator.Play("Base Layer.DamagedAction", 0, 0);
         } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            animator.Play("Base Layer.Figure|BlockAction", 0, 0);
+            animator.Play("Base Layer.BlockAction", 0, 0);
+        } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+            animator.Play("Base Layer.WalkAction", 0, 0);
         }
     }
 }

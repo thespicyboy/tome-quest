@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 2233427525837181560}
   - component: {fileID: 2233427525837181561}
   m_Layer: 0
-  m_Name: jimbo (new)
+  m_Name: jimbo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

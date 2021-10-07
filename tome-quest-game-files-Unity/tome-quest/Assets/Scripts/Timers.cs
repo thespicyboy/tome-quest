@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class Timers : MonoBehaviour
 {
-    public float time = 0f;
+    public float time;
     public float max_time;
     public bool action;
+    public float variable_time = 0.1f;
     
     void Start()
     {
@@ -16,11 +17,12 @@ public class Timers : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (time >=  0 && action == false)
         {
-            time -= (Time.deltaTime);
+            time -= (0.02f);
+            print(time);
             
             
         }

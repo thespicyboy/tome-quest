@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6889a9d73f4b848319253ccef1933b49
+guid: 1bb890c1ebfd91d4eb21e37cd2853c78
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -18,6 +18,9 @@ ModelImporter:
   - first:
       74: -1463755838268516429
     second: WalkAction
+  - first:
+      74: -6647030880018554994
+    second: Figure|Action
   - first:
       74: -150163556403159235
     second: Figure|AttackAction

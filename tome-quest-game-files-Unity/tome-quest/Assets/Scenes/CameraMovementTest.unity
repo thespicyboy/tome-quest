@@ -771,6 +771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165727785}
+  - component: {fileID: 165727786}
   m_Layer: 0
   m_Name: CameraTarget
   m_TagString: Untagged
@@ -792,6 +793,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 154.39, z: 0}
+--- !u!114 &165727786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165727784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97fa605b33475f44a1a629458024d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterTargets:
+  - {fileID: 919132148798360613}
+  - {fileID: 109330627}
+  - {fileID: 1406515591}
+  - {fileID: 521834967}
+  - {fileID: 619967774}
+  - {fileID: 1363010970}
+  holdTimeSec: 1.5
+  targetHeight: 1.5
+  rotateSpeed: 20
 --- !u!1 &167105865
 GameObject:
   m_ObjectHideFlags: 0

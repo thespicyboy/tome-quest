@@ -368,6 +368,11 @@ MonoBehaviour:
   max_action_time: 0
   slider: {fileID: 1042203619}
   Canvas: {fileID: 953760250}
+  max_time: 10
+  action: 0
+  variable_time: 0.1
+  turn_is_happening: 0
+  next_turn: 0
 --- !u!1 &374144189
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +870,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1042203620}
   - component: {fileID: 1042203621}
-  - component: {fileID: 1042203622}
   m_Layer: 5
   m_Name: Turn_Current
   m_TagString: Untagged
@@ -950,25 +954,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1042203622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042203619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b35fac544c1f804ea85eb8b52901184, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bar_dimensions:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  current_bar_position: 100
 --- !u!1 &1127241933
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class initiative_value : MonoBehaviour
 {
     public float initiative;
+    public float action_duration;
     void Start()
     {
         

@@ -10,11 +10,12 @@ public class Turn_Manager : MonoBehaviour
 
     //Mostly for Generating Markers\\
     public GameObject Turn_Marker;
-    private GameObject[] player_turns;
-    private GameObject[] enemy_turns;
-    private GameObject[] turns;
-    float[] initiative_Values;
-    public string[] names;
+    private List<GameObject> player_turns;
+    private List<GameObject> enemy_turns;
+    private List<GameObject> turns;
+    List<float> initiative_Values;
+    //public string[] names;
+    List<string> names;
     public List<GameObject> turn_markers;
     
 
@@ -41,36 +42,39 @@ public class Turn_Manager : MonoBehaviour
     //private float action_max_time;
     private float action_time;
     private bool need_action_time = false;
+   // private float[] action_durations;
 
 
 
     void Start()
     {
 
-        //Stores all gameobjects which need turn markers into arrays, enemy and player, then concactinates them\\
+        //Stores all gameobjects which need turn markers into Lists, enemy and player, then concactinates them\\
         if  (turns == null)
         {
-            player_turns = GameObject.FindGameObjectsWithTag("player");
-            enemy_turns = GameObject.FindGameObjectsWithTag("enemy");
-            turns = player_turns.Concat(enemy_turns).ToArray();
+            player_turns = new List<GameObject>(GameObject.FindGameObjectsWithTag("player"));
+            enemy_turns = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemy"));
+            turns = player_turns.Concat(enemy_turns).ToList();
 
 
         }
 
         //Grabs the Initiative Values and Names and Action_Duration of the Objects\\
-        initiative_Values = new float[turns.Length];
-        names = new string[turns.Length];
+        initiative_Values = new List<float>(turns.Count);
+        names = new List<string>(turns.Count);
         turn_markers = new List<GameObject>();
 
         
-        for (int i = 0; i < turns.Length; i++)
+        for (int i = 0; i < turns.Count; i++)
         {
-            initiative_Values[i] = turns[i].GetComponent<initiative_value>().initiative;
-            names[i] = turns[i].name;
+            names.Add(turns[i].name);
+            initiative_Values.Add(turns[i].GetComponent<initiative_value>().initiative);
             
-            
+           
         }
 
+        
+        
 
         //Grabs the dimensions of the slider bar, and the Max value of the slider, aka initiative \\
         dimensions = slider.GetComponent<RectTransform>().rect;
@@ -120,53 +124,73 @@ public class Turn_Manager : MonoBehaviour
 
         //Time Stuff Obvs\\
         time = max_time;
+
+
+
         
-
-
-
 
     }
 
+    
     // Update is called once per frame\\
     void FixedUpdate()
     {
 
         //Yarr this be the timer and Turn Checker\\
+        // THIS IS THE WORST SHIT IVE EVER WRITTEN MY GOD\\
 
-        next_turn = initiative_Values.Max();
 
-        for (int i = 0; i < turns.Length; i++)
+        if (initiative_Values.Any() == true)
         {
+            next_turn = initiative_Values.Max();
+            var maxIndex = initiative_Values.IndexOf(next_turn);
+            action_duration = turns[maxIndex].GetComponent<initiative_value>().action_duration;
+
             
-            if (turns[i].GetComponent<initiative_value>().initiative == next_turn)
+
+
+            if (current_value <= next_turn && !turn_is_happening)
             {
-                action_duration = turns[i].GetComponent<initiative_value>().action_duration;
-                
-            }
-        }
+                turn_is_happening = true;
+                action_duration = turns[maxIndex].GetComponent<initiative_value>().action_duration;
+                action_time = action_duration;
 
-
-
-            if (current_value <= next_turn)
-        {
-            turn_is_happening = true;
-            
-            
-
-            if (action_time >= 0)
-            {
 
             }
 
+            if (action_time >= 0 && turn_is_happening)
+            {
+                action_time -= (0.02f);
 
+
+            }
+
+            if (action_time <= 0 && turn_is_happening)
+            {
+                initiative_Values.RemoveAt(maxIndex);
+                turns.RemoveAt(maxIndex);
+                turn_is_happening = false;
+            }
+
+
+
+            if (time >= 0 && turn_is_happening == false)
+            {
+                time -= (0.02f);
+
+
+            }
         }
-        
-        if (time >= 0 && turn_is_happening == false)
+        else
         {
-            time -= (0.02f);
-            
-
+            if (time >= 0)
+            {
+                time -= (0.02f);
+            }
         }
+
+       
+
         ///// Sets the Bar Position\\\\\\\\\
         current_value = time * max_value / max_time;
         slider.GetComponent<Slider>().value = current_value;

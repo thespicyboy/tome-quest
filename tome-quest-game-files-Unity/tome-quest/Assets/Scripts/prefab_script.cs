@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class prefab_script : MonoBehaviour
 {
     public float initiative;
+    public float action_duration;
     
 
 

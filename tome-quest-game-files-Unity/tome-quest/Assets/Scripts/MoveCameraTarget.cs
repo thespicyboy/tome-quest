@@ -13,6 +13,8 @@ public class MoveCameraTarget : MonoBehaviour
     private float elapsedHoldTimeSec = 0;
     private int characterTargetIndex = 0;
 
+    private Animator animator;
+
     void Start()
     {
         
@@ -36,8 +38,11 @@ public class MoveCameraTarget : MonoBehaviour
             GameObject nextCharacterTarget = characterTargets[characterTargetIndex];
             transform.position = nextCharacterTarget.transform.position;
             transform.Translate(0, targetHeight, 0);
-        }
 
+            animator = characterTargets[characterTargetIndex].GetComponent<Animator>();
+            animator.Play("Base Layer.AttackAction");
+        }
         transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
     }
+
 }
